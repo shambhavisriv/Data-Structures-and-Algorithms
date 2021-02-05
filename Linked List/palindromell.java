@@ -9,6 +9,25 @@ public class palindromell
                   this.data =  data;
                   next =  null;
     }
+    private static Node<Integer> takeinput(){
+        Scanner s =  new  Scanner(System.in);
+        int data  = s.nextInt();
+        Node<Integer> head  = null,tail =null;
+        while(data != -1)
+        {
+              Node<Integer> curr  = new Node<Integer>(data);
+              if(head  == null){
+                    head  = curr;
+                    tail =  curr;
+              }
+              else{
+                    tail.next  = curr;
+                    tail = curr;
+              }
+              data = s.nextInt();
+        }
+        return head;
+  }
     private static Node<Integer> reverseI(Node<Integer> head){
         Node<Integer> curr = head;
         Node<Integer> prev = null;
@@ -47,3 +66,12 @@ public class palindromell
        }
             return true;
        }
+       
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		
+	 Scanner s = new Scanner(System.in);
+      Node<Integer> head = takeinput();
+      boolean ans  = isPalindrome(head);
+      System.out.print(ans);
+	}
